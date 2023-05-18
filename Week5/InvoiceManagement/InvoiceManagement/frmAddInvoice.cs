@@ -12,46 +12,66 @@ namespace InvoiceManagement
 {
     public partial class frmAddInvoice : Form
     {
+        int invoiceSequence;
+
         public frmAddInvoice()
         {
             InitializeComponent();
         }
 
 
-
         private void frmAddInvoice_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'payablesDataSet.Terms' table. You can move, or remove it, as needed.
-            this.termsTableAdapter.Fill(this.payablesDataSet.Terms);
-            // TODO: This line of code loads data into the 'payablesDataSet.GLAccounts' table. You can move, or remove it, as needed.
-            this.gLAccountsTableAdapter.Fill(this.payablesDataSet.GLAccounts);
+
             termsIDComboBox.SelectedIndexChanged -= termsIDComboBox_SelectedIndexChanged;
 
 
             //Initialise the form combo boxes and date time picker
             this.termsTableAdapter.Fill(this.payablesDataSet.Terms);
             termsIDComboBox.SelectedIndex = -1;
+
             this.gLAccountsTableAdapter.Fill(this.payablesDataSet.GLAccounts);
             accountNoComboBox.SelectedIndex = -1;
 
             invoiceDateDateTimePicker.Value = DateTime.Today;
             invoiceDateDateTimePicker.Checked = false;
 
+            this.DisableControls();
 
-            // TODO: This line of code loads data into the 'payablesDataSet.InvoiceLineItems' table. You can move, or remove it, as needed.
-            this.invoiceLineItemsTableAdapter.Fill(this.payablesDataSet.InvoiceLineItems);
-            // TODO: This line of code loads data into the 'payablesDataSet.Invoices' table. You can move, or remove it, as needed.
-            this.invoicesTableAdapter.Fill(this.payablesDataSet.Invoices);
-            // TODO: This line of code loads data into the 'payablesDataSet.Vendors' table. You can move, or remove it, as needed.
-            //this.vendorsTableAdapter.Fill(this.payablesDataSet.Vendors);
+            termsIDComboBox.SelectedIndexChanged += termsIDComboBox_SelectedIndexChanged;
 
+        }
+
+        private void DisableControls()
+        {
+            invoiceNumberTextBox.Enabled = false;
+            invoiceDateDateTimePicker.Enabled = false;
+            termsIDComboBox.Enabled = false;
+            accountNoComboBox.Enabled = false;
+            descriptionTextBox.Enabled = false;
+            amountTextBox.Enabled = false;
+            btnAccept.Enabled = false;
+            btnAdd.Enabled = false;
+            btnCancel.Enabled = false;
         }
 
         private void fillByVendorIDToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.vendorsTableAdapter.FillByVendorID(this.payablesDataSet.Vendors, ((int)(System.Convert.ChangeType(vendorIDToolStripTextBox.Text, typeof(int)))));
+                int vendorID = Convert.ToInt32(vendorIDToolStripTextBox.Text);
+                this.vendorsTableAdapter.FillByVendorID(this.payablesDataSet.Vendors, vendorID);
+
+                if(this.payablesDataSet.Vendors.Rows.Count == 0)
+                {
+                    MessageBox.Show("No vendor matching ID " + vendorID + ".", "Venfor Not Found");
+                    vendorIDToolStripTextBox.Clear();
+                    vendorIDToolStripTextBox.Focus();
+
+
+
+
+                }
             }
             catch (System.Exception ex)
             {
