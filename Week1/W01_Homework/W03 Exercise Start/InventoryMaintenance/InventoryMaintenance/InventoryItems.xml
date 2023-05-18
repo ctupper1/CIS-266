@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <Item>
+        <ItemNo>3245649</ItemNo>
+        <Description>Agapanthus</Description>
+        <Price>7.95</Price>
+    </Item>
+    <Item>
+        <ItemNo>3762592</ItemNo>
+        <Description>Limonium</Description>
+        <Price>6.95</Price>
+    </Item>
+    <Item>
+        <ItemNo>9210584</ItemNo>
+        <Description>Snail pellets</Description>
+        <Price>12.95</Price>
+    </Item>
+    <Item>
+        <ItemNo>8272738</ItemNo>
+        <Description>My Butt</Description>
+        <Price>12.95</Price>
+    </Item>
+    <Item>
+        <ItemNo>2847162</ItemNo>
+        <Description>Old shoes</Description>
+        <Price>14.95</Price>
+    </Item>
+    <Item>
+        <ItemNo>2726155</ItemNo>
+        <Description>Hollowed-out old book</Description>
+        <Price>9.99</Price>
+    </Item>
+</Items>

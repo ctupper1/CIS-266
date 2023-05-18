@@ -1,0 +1,134 @@
+<?xml version="1.0" standalone="yes"?>
+<PayablesDataSet>
+  <Vendors>
+    <VendorID>1</VendorID>
+    <Name>US Postal Service</Name>
+    <Address1>Attn:  Supt. Window Services</Address1>
+    <Address2>PO Box 7005</Address2>
+    <City>Madison</City>
+    <State>WI</State>
+    <ZipCode>53707</ZipCode>
+    <Phone>8005551205</Phone>
+    <ContactLName>Alberto</ContactLName>
+    <ContactFName>Francesco</ContactFName>
+    <DefaultTermsID>1</DefaultTermsID>
+    <DefaultAccountNo>552</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>2</VendorID>
+    <Name>National Information Data Ctr</Name>
+    <Address1>PO Box 96621</Address1>
+    <City>Washington</City>
+    <State>DC</State>
+    <ZipCode>20090</ZipCode>
+    <Phone>3015558950</Phone>
+    <ContactLName>Irvin</ContactLName>
+    <ContactFName>Ania</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>540</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>3</VendorID>
+    <Name>Register of Copyrights</Name>
+    <Address1>Library Of Congress</Address1>
+    <City>Washington</City>
+    <State>DC</State>
+    <ZipCode>20559</ZipCode>
+    <ContactLName>Liana</ContactLName>
+    <ContactFName>Lukas</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>403</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>4</VendorID>
+    <Name>Jobtrak</Name>
+    <Address1>1990 Westwood Blvd Ste 260</Address1>
+    <City>Los Angeles</City>
+    <State>CA</State>
+    <ZipCode>90025</ZipCode>
+    <Phone>8005558725</Phone>
+    <ContactLName>Quinn</ContactLName>
+    <ContactFName>Kenzie</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>572</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>5</VendorID>
+    <Name>Newbrige Book Clubs</Name>
+    <Address1>3000 Cindel Drive</Address1>
+    <City>Washington</City>
+    <State>NJ</State>
+    <ZipCode>07882</ZipCode>
+    <Phone>8005559980</Phone>
+    <ContactLName>Marks</ContactLName>
+    <ContactFName>Michelle</ContactFName>
+    <DefaultTermsID>4</DefaultTermsID>
+    <DefaultAccountNo>394</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>6</VendorID>
+    <Name>California Chamber Of Commerce</Name>
+    <Address1>3255 Ramos Cir</Address1>
+    <City>Sacramento</City>
+    <State>CA</State>
+    <ZipCode>95827</ZipCode>
+    <Phone>9165556670</Phone>
+    <ContactLName>Mauro</ContactLName>
+    <ContactFName>Anton</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>572</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>7</VendorID>
+    <Name>Towne Advertiser's Mailing Svcs</Name>
+    <Address1>Kevin Minder</Address1>
+    <Address2>3441 W Macarthur Blvd</Address2>
+    <City>Santa Ana</City>
+    <State>CA</State>
+    <ZipCode>92704</ZipCode>
+    <ContactLName>Maegen</ContactLName>
+    <ContactFName>Ted</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>540</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>8</VendorID>
+    <Name>BFI Industries</Name>
+    <Address1>PO Box 9369</Address1>
+    <City>Fresno</City>
+    <State>CA</State>
+    <ZipCode>93792</ZipCode>
+    <Phone>5595551551</Phone>
+    <ContactLName>Kaleigh</ContactLName>
+    <ContactFName>Erick</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>521</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>9</VendorID>
+    <Name>Pacific Gas &amp; Electric</Name>
+    <Address1>PO Box 52001</Address1>
+    <City>San Francisco</City>
+    <State>CA</State>
+    <ZipCode>94152</ZipCode>
+    <Phone>8005556081</Phone>
+    <ContactLName>Anthoni</ContactLName>
+    <ContactFName>Katlyn</ContactFName>
+    <DefaultTermsID>3</DefaultTermsID>
+    <DefaultAccountNo>521</DefaultAccountNo>
+  </Vendors>
+  <Vendors>
+    <VendorID>10</VendorID>
+    <Name>Robbins Mobile Lock And Key</Name>
+    <Address1>4669 N. Fresno</Address1>
+    <Address2 />
+    <City>Fresno</City>
+    <State>CA</State>
+    <ZipCode>93726</ZipCode>
+    <Phone>5595559375</Phone>
+    <ContactLName>Leigh</ContactLName>
+    <ContactFName>Bill</ContactFName>
+    <DefaultTermsID>2</DefaultTermsID>
+    <DefaultAccountNo>523</DefaultAccountNo>
+  </Vendors>
+</PayablesDataSet>

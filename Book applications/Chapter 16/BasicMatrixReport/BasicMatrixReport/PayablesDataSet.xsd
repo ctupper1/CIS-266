@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PayablesDataSet" targetNamespace="http://tempuri.org/PayablesDataSet.xsd" xmlns:mstns="http://tempuri.org/PayablesDataSet.xsd" xmlns="http://tempuri.org/PayablesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PayablesConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PayablesConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BasicMatrixReport.Properties.Settings.GlobalReference.Default.PayablesConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvoiceStateCityDataTableTableAdapter" GeneratorDataComponentClassName="InvoiceStateCityDataTableTableAdapter" Name="InvoiceStateCityDataTable" UserDataComponentName="InvoiceStateCityDataTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PayablesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Invoices.InvoiceDate, Invoices.InvoiceNumber, Invoices.InvoiceTotal, Vendors.State, Vendors.City, States.StateName
+FROM     States INNER JOIN
+                  Vendors ON States.StateCode = Vendors.State RIGHT OUTER JOIN
+                  Invoices ON Vendors.VendorID = Invoices.VendorID
+WHERE  (Vendors.State = 'CA' OR Vendors.State = 'AZ')  AND (Vendors.City = 'Fresno') OR (Vendors.City = 'Oxnard') OR (Vendors.City = 'Turlock') OR (Vendors.City = 'Phoenix')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="InvoiceDate" DataSetColumn="InvoiceDate" />
+              <Mapping SourceColumn="InvoiceNumber" DataSetColumn="InvoiceNumber" />
+              <Mapping SourceColumn="InvoiceTotal" DataSetColumn="InvoiceTotal" />
+              <Mapping SourceColumn="State" DataSetColumn="State" />
+              <Mapping SourceColumn="City" DataSetColumn="City" />
+              <Mapping SourceColumn="StateName" DataSetColumn="StateName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PayablesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PayablesDataSet" msprop:Generator_UserDSName="PayablesDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InvoiceStateCityDataTable" msprop:Generator_TableClassName="InvoiceStateCityDataTableDataTable" msprop:Generator_TableVarName="tableInvoiceStateCityDataTable" msprop:Generator_TablePropName="InvoiceStateCityDataTable" msprop:Generator_RowDeletingName="InvoiceStateCityDataTableRowDeleting" msprop:Generator_UserTableName="InvoiceStateCityDataTable" msprop:Generator_RowChangingName="InvoiceStateCityDataTableRowChanging" msprop:Generator_RowEvHandlerName="InvoiceStateCityDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceStateCityDataTableRowDeleted" msprop:Generator_RowEvArgName="InvoiceStateCityDataTableRowChangeEvent" msprop:Generator_RowChangedName="InvoiceStateCityDataTableRowChanged" msprop:Generator_RowClassName="InvoiceStateCityDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InvoiceDate" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate" msprop:Generator_ColumnPropNameInRow="InvoiceDate" msprop:Generator_ColumnPropNameInTable="InvoiceDateColumn" msprop:Generator_UserColumnName="InvoiceDate" type="xs:dateTime" />
+              <xs:element name="InvoiceNumber" msprop:Generator_ColumnVarNameInTable="columnInvoiceNumber" msprop:Generator_ColumnPropNameInRow="InvoiceNumber" msprop:Generator_ColumnPropNameInTable="InvoiceNumberColumn" msprop:Generator_UserColumnName="InvoiceNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceTotal" msprop:Generator_ColumnVarNameInTable="columnInvoiceTotal" msprop:Generator_ColumnPropNameInRow="InvoiceTotal" msprop:Generator_ColumnPropNameInTable="InvoiceTotalColumn" msprop:Generator_UserColumnName="InvoiceTotal" type="xs:decimal" />
+              <xs:element name="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_UserColumnName="State" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StateName" msprop:Generator_ColumnVarNameInTable="columnStateName" msprop:Generator_ColumnPropNameInRow="StateName" msprop:Generator_ColumnPropNameInTable="StateNameColumn" msprop:Generator_UserColumnName="StateName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PayablesData.Invoice">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMAAAABEAAKABAgAgAAIAIIAAAACIAAAQCAAAoCA=</HashCode>
+      <FileName>Invoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayablesData.InvoiceDB">
+    <Position X="6.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>InvoiceDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayablesData.PayablesDB">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>PayablesDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayablesData.Vendor">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAgAAIAAAAKAgIkCIQAJACEAAClAAIAJAAAAAA=</HashCode>
+      <FileName>Vendor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayablesData.VendorDB">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VendorDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

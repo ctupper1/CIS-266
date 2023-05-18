@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PayablesDataSet" targetNamespace="http://tempuri.org/PayablesDataSet.xsd" xmlns:mstns="http://tempuri.org/PayablesDataSet.xsd" xmlns="http://tempuri.org/PayablesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PayablesConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PayablesConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FreightServicesCosts.Properties.Settings.GlobalReference.Default.PayablesConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FreightDataTableTableAdapter" GeneratorDataComponentClassName="FreightDataTableTableAdapter" Name="FreightDataTable" UserDataComponentName="FreightDataTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PayablesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Vendors.Name, Invoices.InvoiceTotal, InvoiceLineItems.Description, InvoiceLineItems.Amount, YEAR(Invoices.InvoiceDate) AS Year
+FROM     GLAccounts INNER JOIN
+                  InvoiceLineItems ON GLAccounts.AccountNo = InvoiceLineItems.AccountNo INNER JOIN
+                  Invoices ON InvoiceLineItems.InvoiceID = Invoices.InvoiceID INNER JOIN
+                  Vendors ON GLAccounts.AccountNo = Vendors.DefaultAccountNo AND Invoices.VendorID = Vendors.VendorID
+WHERE  (InvoiceLineItems.Description = 'Freight')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="InvoiceTotal" DataSetColumn="InvoiceTotal" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PayablesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PayablesDataSet" msprop:Generator_UserDSName="PayablesDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FreightDataTable" msprop:Generator_TableClassName="FreightDataTableDataTable" msprop:Generator_TableVarName="tableFreightDataTable" msprop:Generator_TablePropName="FreightDataTable" msprop:Generator_RowDeletingName="FreightDataTableRowDeleting" msprop:Generator_UserTableName="FreightDataTable" msprop:Generator_RowChangingName="FreightDataTableRowChanging" msprop:Generator_RowEvHandlerName="FreightDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="FreightDataTableRowDeleted" msprop:Generator_RowEvArgName="FreightDataTableRowChangeEvent" msprop:Generator_RowChangedName="FreightDataTableRowChanged" msprop:Generator_RowClassName="FreightDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceTotal" msprop:Generator_ColumnVarNameInTable="columnInvoiceTotal" msprop:Generator_ColumnPropNameInRow="InvoiceTotal" msprop:Generator_ColumnPropNameInTable="InvoiceTotalColumn" msprop:Generator_UserColumnName="InvoiceTotal" type="xs:decimal" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" />
+              <xs:element name="Year" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

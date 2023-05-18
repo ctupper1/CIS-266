@@ -1,0 +1,1 @@
+xcopy "Exercise Starts\*" "C:\ADO.NET 4 C#\*" /E
