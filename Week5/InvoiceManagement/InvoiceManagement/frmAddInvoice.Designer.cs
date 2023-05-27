@@ -54,6 +54,7 @@
             this.invoicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.invoiceDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.termsIDComboBox = new System.Windows.Forms.ComboBox();
+            this.termsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dueDaysTextBox = new System.Windows.Forms.TextBox();
             this.accountNoComboBox = new System.Windows.Forms.ComboBox();
             this.invoiceLineItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -83,7 +84,6 @@
             this.invoicesTableAdapter = new InvoiceManagement.PayablesDataSetTableAdapters.InvoicesTableAdapter();
             this.gLAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gLAccountsTableAdapter = new InvoiceManagement.PayablesDataSetTableAdapters.GLAccountsTableAdapter();
-            this.termsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.termsTableAdapter = new InvoiceManagement.PayablesDataSetTableAdapters.TermsTableAdapter();
             vendorIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -99,11 +99,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.payablesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoicesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.termsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceLineItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceLineItemsDataGridView)).BeginInit();
             this.getDataByVendorIDToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gLAccountsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.termsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // vendorIDLabel
@@ -294,21 +294,33 @@
             // invoiceDateDateTimePicker
             // 
             this.invoiceDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.invoicesBindingSource, "InvoiceDate", true));
+            this.invoiceDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.invoiceDateDateTimePicker.Location = new System.Drawing.Point(159, 316);
             this.invoiceDateDateTimePicker.Name = "invoiceDateDateTimePicker";
+            this.invoiceDateDateTimePicker.ShowCheckBox = true;
             this.invoiceDateDateTimePicker.Size = new System.Drawing.Size(200, 26);
             this.invoiceDateDateTimePicker.TabIndex = 16;
+            this.invoiceDateDateTimePicker.ValueChanged += new System.EventHandler(this.invoiceDateDateTimePicker_ValueChanged);
             // 
             // termsIDComboBox
             // 
             this.termsIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.invoicesBindingSource, "TermsID", true));
+            this.termsIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.termsBindingSource, "TermsID", true));
+            this.termsIDComboBox.DataSource = this.termsBindingSource;
+            this.termsIDComboBox.DisplayMember = "Description";
             this.termsIDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.termsIDComboBox.FormattingEnabled = true;
             this.termsIDComboBox.Location = new System.Drawing.Point(159, 348);
             this.termsIDComboBox.Name = "termsIDComboBox";
             this.termsIDComboBox.Size = new System.Drawing.Size(200, 28);
             this.termsIDComboBox.TabIndex = 17;
+            this.termsIDComboBox.ValueMember = "TermsID";
             this.termsIDComboBox.SelectedIndexChanged += new System.EventHandler(this.termsIDComboBox_SelectedIndexChanged);
+            // 
+            // termsBindingSource
+            // 
+            this.termsBindingSource.DataMember = "Terms";
+            this.termsBindingSource.DataSource = this.payablesDataSet;
             // 
             // dueDaysTextBox
             // 
@@ -463,7 +475,7 @@
             this.fillByVendorNameToolStripButton});
             this.getDataByVendorIDToolStrip.Location = new System.Drawing.Point(0, 0);
             this.getDataByVendorIDToolStrip.Name = "getDataByVendorIDToolStrip";
-            this.getDataByVendorIDToolStrip.Size = new System.Drawing.Size(1063, 34);
+            this.getDataByVendorIDToolStrip.Size = new System.Drawing.Size(1063, 38);
             this.getDataByVendorIDToolStrip.TabIndex = 32;
             this.getDataByVendorIDToolStrip.Text = "getDataByVendorIDToolStrip";
             // 
@@ -508,7 +520,7 @@
             this.fillByVendorNameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.fillByVendorNameToolStripButton.Margin = new System.Windows.Forms.Padding(10, 2, 0, 3);
             this.fillByVendorNameToolStripButton.Name = "fillByVendorNameToolStripButton";
-            this.fillByVendorNameToolStripButton.Size = new System.Drawing.Size(50, 29);
+            this.fillByVendorNameToolStripButton.Size = new System.Drawing.Size(50, 33);
             this.fillByVendorNameToolStripButton.Text = "Find";
             this.fillByVendorNameToolStripButton.Click += new System.EventHandler(this.fillByVendorNameToolStripButton_Click);
             // 
@@ -541,11 +553,6 @@
             // gLAccountsTableAdapter
             // 
             this.gLAccountsTableAdapter.ClearBeforeFill = true;
-            // 
-            // termsBindingSource
-            // 
-            this.termsBindingSource.DataMember = "Terms";
-            this.termsBindingSource.DataSource = this.payablesDataSet;
             // 
             // termsTableAdapter
             // 
@@ -594,12 +601,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payablesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoicesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.termsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceLineItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceLineItemsDataGridView)).EndInit();
             this.getDataByVendorIDToolStrip.ResumeLayout(false);
             this.getDataByVendorIDToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gLAccountsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.termsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

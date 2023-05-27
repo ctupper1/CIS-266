@@ -38,7 +38,7 @@ namespace InvoiceManagement
 
             this.DisableControls();
 
-            termsIDComboBox.SelectedIndexChanged += termsIDComboBox_SelectedIndexChanged;
+//            termsIDComboBox.SelectedIndexChanged += termsIDComboBox_SelectedIndexChanged;
 
         }
 
@@ -55,6 +55,21 @@ namespace InvoiceManagement
             btnCancel.Enabled = false;
         }
 
+        private void EnableControls()
+        {
+            //Set all values below to true
+
+            invoiceNumberTextBox.Enabled = true;
+            invoiceDateDateTimePicker.Enabled = true;
+            termsIDComboBox.Enabled =true;
+            accountNoComboBox.Enabled = true;
+            descriptionTextBox.Enabled = true;
+            amountTextBox.Enabled = true;
+            btnAccept.Enabled = true;
+            btnAdd.Enabled = true;
+            btnCancel.Enabled = true;
+        }
+
         private void fillByVendorIDToolStripButton_Click(object sender, EventArgs e)
         {
             try
@@ -64,12 +79,37 @@ namespace InvoiceManagement
 
                 if(this.payablesDataSet.Vendors.Rows.Count == 0)
                 {
-                    MessageBox.Show("No vendor matching ID " + vendorID + ".", "Venfor Not Found");
+                    MessageBox.Show("No vendor matching ID " + vendorID + ".", "Vendor Not Found");
                     vendorIDToolStripTextBox.Clear();
                     vendorIDToolStripTextBox.Focus();
+                }
 
+                else
+                {
+                    //Enable controls
+                    this.EnableControls();
+                    
+                    this.invoicesBindingSource.CancelEdit();
 
+                    //Remove any line items that were added to data view
+                    for (int i = invoiceLineItemsDataGridView.Rows.Count - 1; i > 0; i--) 
+                    {
+                        invoiceLineItemsDataGridView.Rows.RemoveAt(i);
+                    }
 
+                    //Add a new row to the invoices table
+                    this.invoicesBindingSource.AddNew();
+
+                    //Initialize vendor ID and invoice date
+                    vendorIDTextBox.Text = vendorID.ToString();
+                    invoiceDateDateTimePicker.Value = DateTime.Today;
+                    invoiceDateDateTimePicker.Checked = false;
+
+                    //Get default values for vendor and initialize the combo boxes
+                    int defaultTermsId = (int)this.vendorsTableAdapter.GetDefaultTermsID(vendorID);
+                    termsIDComboBox.SelectedValue = defaultTermsId;
+                    int defaultAcctNo = (int)this.vendorsTableAdapter.GetDefaultAccountNo(vendorID);
+                    accountNoComboBox.SelectedValue = defaultAcctNo;
 
                 }
             }
@@ -129,6 +169,14 @@ namespace InvoiceManagement
             DateTime invoiceDate = invoiceDateDateTimePicker.Value;
             DateTime dueDate = invoiceDate.AddDays(dueDays);
             dueDaysTextBox.Text = dueDate.ToShortDateString();
+        }
+
+        private void invoiceDateDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (vendorIDTextBox.Text != "")
+            {
+                this.CalculateDueDate();
+            }
         }
     }
 }

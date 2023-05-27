@@ -137,11 +137,15 @@ namespace InvoiceEntry
 
         private void CalculateDueDate()
         {
-            int termsID = (int)termsIDComboBox.SelectedValue;
-            int dueDays = (int)this.termsTableAdapter.GetDueDays(termsID);
-            DateTime invoiceDate = invoiceDateDateTimePicker.Value;
-            DateTime dueDate = invoiceDate.AddDays(dueDays);
-            dueDateTextBox.Text = dueDate.ToShortDateString();
+            if(termsIDComboBox.SelectedIndex != null)
+            {            
+                int termsID = (int)termsIDComboBox.SelectedValue;
+                int dueDays = (int)this.termsTableAdapter.GetDueDays(termsID);
+                DateTime invoiceDate = invoiceDateDateTimePicker.Value;
+                DateTime dueDate = invoiceDate.AddDays(dueDays);
+                dueDateTextBox.Text = dueDate.ToShortDateString();
+            }
+
         }
 
         private void fillByNameToolStripButton_Click(object sender, EventArgs e)
