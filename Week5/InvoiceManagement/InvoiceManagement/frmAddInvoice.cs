@@ -19,6 +19,7 @@ namespace InvoiceManagement
             InitializeComponent();
         }
 
+        bool change = true;
 
         private void frmAddInvoice_Load(object sender, EventArgs e)
         {
